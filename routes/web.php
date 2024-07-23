@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -18,4 +19,6 @@ Route::middleware([
 
 Route::get('/', [HomeController::class,'index'])->name('home.index');
 
-Route::get('redirect', [HomeController::class, 'redirect']);
+Route::get('redirect', [HomeController::class, 'redirect'])->name('redirect.dashboard');
+
+Route::get('/category', [AdminController::class, 'categoryIndex'])->name('category.index');
