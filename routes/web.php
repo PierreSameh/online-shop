@@ -24,3 +24,5 @@ Route::get('redirect', [HomeController::class, 'redirect'])->name('redirect.dash
 Route::get('/category', [AdminController::class, 'categoryIndex'])->name('category.index');
 // Add a new Category
 Route::post('/category/add', [AdminController::class, 'categoryStore'])->name('category.store');
+// Delete a Category
+Route::delete('/category/{category}', [AdminController::class, 'categoryDelete'])->name('category.delete');

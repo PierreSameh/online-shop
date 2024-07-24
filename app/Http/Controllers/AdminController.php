@@ -7,10 +7,13 @@ use App\Models\Category;
 
 class AdminController extends Controller
 {
+    // Show Category Page on Admin Dashboard
     public function categoryIndex(){
-        return view('admin/category');
-    }
+        $categories = Category::all();
 
+        return view('admin/category', compact('categories'));
+    }
+    // Show * Categories from DB
     public function categoryStore(Request $request){
         $request->validate([
             'category_name' => 'required|unique:categories,category_name|max:100'
@@ -20,5 +23,11 @@ class AdminController extends Controller
         ]);
         $category->save();
         return redirect()->back()->with('success','Category Added Successfully');
+    }
+    // Delete a Category From DB
+    public function categoryDelete(Category $category){
+        $category->delete();
+
+        return redirect()->back();
     }
 }
