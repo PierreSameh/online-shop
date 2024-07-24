@@ -1,8 +1,6 @@
 @extends('layouts.admin.dashboard')
 
 @section("content")
-<div class="main-panel">
-    <div class="content-wrapper">
         {{-- Show Validation Errors for non-accepted entry --}}
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -68,6 +66,4 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
 @endsection
