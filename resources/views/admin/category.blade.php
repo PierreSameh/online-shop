@@ -19,6 +19,11 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
                 {{session()->get('success')}}
             </div>
+        @elseif (session()->has('delete'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                {{session()->get('delete')}}
+            </div>
         @endif
         {{-- Category Add Form --}}
         <div style="text-align:center;padding:40px 0;">
@@ -54,7 +59,8 @@
                             <form action="{{route('category.delete', $category->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                 <button type="submit" class="btn btn-danger">Delete</button>
+                                 <button type="submit" class="btn btn-danger"
+                                  onclick="return confirm('Are You Sure?')">Delete</button>
                             </form>
                         </td>
                     </tr>

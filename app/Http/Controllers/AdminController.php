@@ -28,6 +28,6 @@ class AdminController extends Controller
     public function categoryDelete(Category $category){
         $category->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('delete', $category->category_name . ' Category Deleted');
     }
 }
